@@ -21,18 +21,17 @@
     "node": ">=10"
   },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test --runInBand --passWithNoTests",
-    "lint": "tsdx lint src",
-    "lint:fix": "tsdx lint src --fix",
-    "prepare": "tsdx build"
+    "build": "npx dts-cli build",
+    "test": "npx dts-cli test --runInBand --passWithNoTests",
+    "lint": "npx dts-cli lint src",
+    "lint:fix": "npx dts-cli lint src --fix",
+    "prepare": "npx dts-cli build"
   },
   "devDependencies": {
     "@evan.network/sidetree-test-vectors": "^0.3.1-unstable.70",
     "@evan.network/sidetree-wallet": "^0.3.1-unstable.70",
-    "@types/semver": "7.3.5",
-    "tsdx": "^0.14.1"
+    "@types/semver": "7.3.13",
+    "dts": "^0.1.1"
   },
   "dependencies": {
     "@evan.network/sidetree-cas": "^0.3.1-unstable.70",
@@ -40,14 +39,10 @@
     "@evan.network/sidetree-core": "^0.3.1-unstable.70",
     "@evan.network/sidetree-db": "^0.3.1-unstable.70",
     "@evan.network/sidetree-ledger": "^0.3.1-unstable.70",
-    "@rollup/plugin-replace": "^3.0.0",
-    "mongodb": "^4.1.2",
-    "semver": "^7.3.5",
-    "time-span": "3.1.0"
-  },
-  "resolutions": {
-    "node-notifier": "^8.0.1",
-    "jsdom": "^16.5.0"
+    "@rollup/plugin-replace": "^5.0.2",
+    "mongodb": "^5.1.0",
+    "semver": "^7.3.8",
+    "time-span": "5.1.0"
   },
   "homepage": "https://github.com/transmute-industries/sidetree.js/tree/main/packages/did-method",
   "repository": {

@@ -17,32 +17,28 @@
     "node": ">=10"
   },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "IMPORT_SQLITE=true tsdx test",
-    "lint": "tsdx lint src",
-    "lint:fix": "tsdx lint src --fix",
-    "prepare": "tsdx build"
+    "start": "npx dts-cli watch",
+    "build": "npx dts-cli build",
+    "test": "IMPORT_SQLITE=true npx dts-cli test",
+    "lint": "npx dts-cli lint src",
+    "lint:fix": "npx dts-cli lint src --fix",
+    "prepare": "npx dts-cli build"
   },
   "devDependencies": {
     "@evan.network/sidetree-test-vectors": "^0.3.1-unstable.70",
     "@rollup/plugin-replace": "^3.0.0",
-    "@types/sqlite3": "^3.1.7",
-    "tsdx": "^0.14.1"
+    "@types/sqlite3": "^3.1.8",
+    "dts": "^0.1.1"
   },
   "dependencies": {
     "@evan.network/sidetree-common": "^0.3.1-unstable.70",
     "@evan.network/sidetree-core": "^0.3.1-unstable.70",
-    "amazon-qldb-driver-nodejs": "^2.2.0",
-    "aws-sdk": "^2.828.0",
-    "ion-js": "^4.1.0",
-    "jsbi": "^3.1.4",
-    "moment": "^2.29.1",
-    "sqlite3": "^5.0.2"
-  },
-  "resolutions": {
-    "node-notifier": "^8.0.1",
-    "jsdom": "^16.5.0"
+    "amazon-qldb-driver-nodejs": "^3.0.1",
+    "aws-sdk": "^2.1332.0",
+    "ion-js": "^4.3.0",
+    "jsbi": "^4.3.0",
+    "moment": "^2.29.4",
+    "sqlite3": "^5.1.4"
   },
   "homepage": "https://github.com/transmute-industries/sidetree.js/tree/main/packages/ledger-qldb",
   "repository": {
