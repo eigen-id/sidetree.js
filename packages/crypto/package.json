@@ -44,6 +44,9 @@
       }
     }
   },
+  "resolutions": {
+    "@transmute/json-web-signature/@transmute/jsonld/jsonld": "^8"
+  },
   "gitHead": "9501995a63904980ae46089a6419cf622f2bc51a",
   "homepage": "https://github.com/transmute-industries/sidetree.js/tree/main/packages/crypto",
   "repository": {
