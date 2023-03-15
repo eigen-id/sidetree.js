@@ -1,6 +1,7 @@
 const NodeEnvironment = require('jest-environment-node');
 
 const { TextEncoder, TextDecoder } = require('util');
+const {Headers} = require('node-fetch')
 
 class MyEnvironment extends NodeEnvironment {
   constructor(config) {
@@ -12,6 +13,7 @@ class MyEnvironment extends NodeEnvironment {
           ArrayBuffer: ArrayBuffer,
           TextEncoder: TextEncoder,
           TextDecoder: TextDecoder,
+          Headers,
         }),
       })
     );

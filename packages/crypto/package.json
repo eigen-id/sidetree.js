@@ -24,6 +24,7 @@
     "prepare": "npx dts-cli build"
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.21.0",
     "dts-cli": "^1.6.3",
     "events": "^3.3.0"
   },
@@ -32,7 +33,16 @@
     "@transmute/ed25519-key-pair": "^0.7.0-unstable.80",
     "@transmute/json-web-signature": "^0.7.0-unstable.80",
     "bip39": "^3.1.0",
-    "hdkey": "^2.1.0"
+    "hdkey": "^2.1.0",
+    "jest-esm-transformer": "^1.0.0",
+    "node-fetch": "^2.6.9"
+  },
+  "overrides": {
+    "@transmute/json-web-signature": {
+      "@transmute/jsonld": {
+        "jsonld": "^8"
+      }
+    }
   },
   "gitHead": "9501995a63904980ae46089a6419cf622f2bc51a",
   "homepage": "https://github.com/transmute-industries/sidetree.js/tree/main/packages/crypto",
@@ -40,5 +50,18 @@
     "type": "git",
     "url": "https://github.com/transmute-industries/sidetree.js.git",
     "directory": "packages/crypto"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest",
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!(@digitalbazaar/http-client/|ky-universal|ky/))"
+    ],
+    "moduleNameMapper": {
+      "^@digitalbazaar/http-client$": "<rootDir>/node_modules/@digitalbazaar/http-client/lib/index.js",
+      "^ky-universal$": "<rootDir>/node_modules/ky-universal/browser.js"
+    }
   }
 }
