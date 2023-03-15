@@ -28,15 +28,15 @@
   "devDependencies": {
     "@evan.network/sidetree-cas": "^0.3.1-unstable.70",
     "@rollup/plugin-replace": "^3.0.0",
-    "dts": "^0.1.1",
-    "jest-environment-node": "^29.5.0"
+    "dts-cli": "^1.6.3",
+    "jest-environment-node": "^27.2.5"
   },
   "dependencies": {
     "@evan.network/sidetree-common": "^0.3.1-unstable.70",
     "@evan.network/sidetree-db": "^0.3.1-unstable.70",
     "dts-cli": "^1.6.3",
-    "ipfs-http-client": "^60.0.0",
-    "it-concat": "^3.0.1"
+    "ipfs-http-client": "^56.0.0",
+    "it-concat": "^2.0.0"
   },
   "gitHead": "9501995a63904980ae46089a6419cf622f2bc51a",
   "homepage": "https://github.com/transmute-industries/sidetree.js/tree/main/packages/cas-ipfs",
@@ -44,5 +44,8 @@
     "type": "git",
     "url": "https://github.com/transmute-industries/sidetree.js.git",
     "directory": "packages/cas-ipfs"
+  },
+  "jest": {
+    "transform": {}
   }
 }

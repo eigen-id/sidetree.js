@@ -31,7 +31,7 @@
     "@evan.network/sidetree-test-vectors": "^0.3.1-unstable.70",
     "@evan.network/sidetree-wallet": "^0.3.1-unstable.70",
     "@types/semver": "7.3.13",
-    "dts": "^0.1.1"
+    "dts-cli": "^1.6.3"
   },
   "dependencies": {
     "@evan.network/sidetree-cas": "^0.3.1-unstable.70",
@@ -42,7 +42,7 @@
     "@rollup/plugin-replace": "^5.0.2",
     "mongodb": "^5.1.0",
     "semver": "^7.3.8",
-    "time-span": "5.1.0"
+    "time-span": "4"
   },
   "homepage": "https://github.com/transmute-industries/sidetree.js/tree/main/packages/did-method",
   "repository": {

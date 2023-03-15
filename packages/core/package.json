@@ -33,8 +33,9 @@
     "@rollup/plugin-replace": "^5.0.2",
     "@types/hdkey": "^2.0.1",
     "@types/time-span": "3.0.1",
-    "dts": "^0.1.1",
-    "jest-environment-node": "^29.5.0"
+    "dts-cli": "^1.6.3",
+    "jest-environment-node": "^27.2.5",
+    "tslib": "^2.5.0"
   },
   "dependencies": {
     "@evan.network/sidetree-common": "^0.3.1-unstable.70",
@@ -50,7 +51,7 @@
     "hdkey": "^2.1.0",
     "jose": "^4.13.1",
     "priorityqueue": "^2.0.0",
-    "time-span": "5.1.0",
+    "time-span": "4",
     "uri-js": "^4.4.1",
     "yieldable-json": "^2.0.0"
   },

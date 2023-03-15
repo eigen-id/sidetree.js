@@ -77,7 +77,7 @@ export default class ProvisionalProofFile {
     } catch (error) {
       throw SidetreeError.createFromError(
         ErrorCode.ProvisionalProofFileDecompressionFailure,
-        error
+        (error as any)
       );
     }
 
@@ -89,7 +89,7 @@ export default class ProvisionalProofFile {
     } catch (error) {
       throw SidetreeError.createFromError(
         ErrorCode.ProvisionalProofFileNotJson,
-        error
+        (error as any)
       );
     }
 

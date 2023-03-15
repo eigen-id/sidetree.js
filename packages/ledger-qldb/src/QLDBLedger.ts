@@ -51,7 +51,7 @@ export default class QLDBLedger implements IBlockchain {
       // Load AWS credentials from ~/.aws/credentials file
       process.env.AWS_SDK_LOAD_CONFIG = '1';
       qldbConfig = {
-        region: 'us-east-1',
+        region: 'us-east-1'
       };
     }
     const maxConcurrentTransactions = 10;
@@ -61,7 +61,8 @@ export default class QLDBLedger implements IBlockchain {
     const retryConfig: RetryConfig = new RetryConfig(retryLimit);
     this.qldbDriver = new QldbDriver(
       ledgerName,
-      qldbConfig,
+      qldbConfig as any,
+      undefined,
       maxConcurrentTransactions,
       retryConfig
     );

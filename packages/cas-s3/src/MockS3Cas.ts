@@ -23,7 +23,7 @@ import {
   FetchResult,
   ServiceVersionModel,
 } from '@evan.network/sidetree-common';
-import Unixfs from 'ipfs-unixfs';
+import { UnixFS } from 'ipfs-unixfs';
 import { DAGNode } from 'ipld-dag-pb';
 const { version } = require('../package.json');
 
@@ -66,7 +66,10 @@ export default class MockS3Cas implements ICasService {
    * Gets the address that can be used to access the given content.
    */
   public static async getAddress(content: Buffer): Promise<string> {
-    const unixFs = new Unixfs('file', content);
+    const unixFs = new UnixFS({
+      type: 'file',
+      data: content
+    });
     const marshaled = unixFs.marshal();
     const dagNode = new DAGNode(marshaled);
     const dagLink = await dagNode.toDAGLink({

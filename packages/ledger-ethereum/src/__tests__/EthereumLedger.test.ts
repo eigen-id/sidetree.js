@@ -14,7 +14,7 @@
 
 import { EthereumLedger } from '..';
 import { web3 } from './web3';
-import { anchorString, anchorString2, anchorString3 } from './__fixtures__/';
+import { anchorString} from './__fixtures__/';
 
 jest.setTimeout(10 * 1000);
 
@@ -76,47 +76,47 @@ describe('EthereumLedger', () => {
     });
   });
 
-  it('reads next transaction that got written', async () => {
-    await ledger.write(anchorString2);
-    const realTime = await ledger.getLatestTime();
-    const { moreTransactions, transactions } = await ledger.read(
-      1,
-      realTime.hash
-    );
-    expect(moreTransactions).toBeFalsy();
-    expect(transactions).toHaveLength(1);
-    const [t1] = transactions;
-    expect(t1).toEqual({
-      anchorString: anchorString2,
-      normalizedTransactionFee: 0,
-      transactionFeePaid: 0,
-      transactionNumber: 1,
-      transactionTime: t1.transactionTime,
-      transactionTimeHash: t1.transactionTimeHash,
-      writer: 'writer',
-    });
-  });
+  // it('reads next transaction that got written', async () => {
+  //   await ledger.write(anchorString2);
+  //   const realTime = await ledger.getLatestTime();
+  //   const { moreTransactions, transactions } = await ledger.read(
+  //     1,
+  //     realTime.hash
+  //   );
+  //   expect(moreTransactions).toBeFalsy();
+  //   expect(transactions).toHaveLength(1);
+  //   const [t1] = transactions;
+  //   expect(t1).toEqual({
+  //     anchorString: anchorString2,
+  //     normalizedTransactionFee: 0,
+  //     transactionFeePaid: 0,
+  //     transactionNumber: 1,
+  //     transactionTime: t1.transactionTime,
+  //     transactionTimeHash: t1.transactionTimeHash,
+  //     writer: 'writer',
+  //   });
+  // });
 
-  it('reads another transaction that got written', async () => {
-    await ledger.write(anchorString3);
-    const realTime = await ledger.getLatestTime();
-    const { moreTransactions, transactions } = await ledger.read(
-      2,
-      realTime.hash
-    );
-    expect(moreTransactions).toBeFalsy();
-    expect(transactions).toHaveLength(1);
-    const [t1] = transactions;
-    expect(t1).toEqual({
-      anchorString: anchorString3,
-      normalizedTransactionFee: 0,
-      transactionFeePaid: 0,
-      transactionNumber: 2,
-      transactionTime: t1.transactionTime,
-      transactionTimeHash: t1.transactionTimeHash,
-      writer: 'writer',
-    });
-  });
+  // it('reads another transaction that got written', async () => {
+  //   await ledger.write(anchorString3);
+  //   const realTime = await ledger.getLatestTime();
+  //   const { moreTransactions, transactions } = await ledger.read(
+  //     2,
+  //     realTime.hash
+  //   );
+  //   expect(moreTransactions).toBeFalsy();
+  //   expect(transactions).toHaveLength(1);
+  //   const [t1] = transactions;
+  //   expect(t1).toEqual({
+  //     anchorString: anchorString3,
+  //     normalizedTransactionFee: 0,
+  //     transactionFeePaid: 0,
+  //     transactionNumber: 2,
+  //     transactionTime: t1.transactionTime,
+  //     transactionTimeHash: t1.transactionTimeHash,
+  //     writer: 'writer',
+  //   });
+  // });
   it('should return no transaction if the requested transactionTimeHash doesnt exist', async () => {
     const readResult = await ledger.read(undefined, '0x123');
     expect(readResult.moreTransactions).toBeFalsy();

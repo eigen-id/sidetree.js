@@ -60,7 +60,7 @@ export default class CoreIndexFile {
     } catch (e) {
       throw SidetreeError.createFromError(
         ErrorCode.CoreIndexFileDecompressionFailure,
-        e
+        (e as any)
       );
     }
 
@@ -70,7 +70,7 @@ export default class CoreIndexFile {
         coreIndexFileDecompressedBuffer
       );
     } catch (e) {
-      throw SidetreeError.createFromError(ErrorCode.CoreIndexFileNotJson, e);
+      throw SidetreeError.createFromError(ErrorCode.CoreIndexFileNotJson, e as any);
     }
 
     const allowedProperties = new Set([

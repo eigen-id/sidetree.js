@@ -149,7 +149,7 @@ export default class Jws {
       console.log(
         `Input '${compactJws}' failed signature verification: ${SidetreeError.createFromError(
           ErrorCode.JwsFailedSignatureValidation,
-          error
+          (error as any)
         )}`
       );
       return false;

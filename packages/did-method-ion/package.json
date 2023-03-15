@@ -10,7 +10,7 @@
   "author": "Orie Steele",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^29.5.0"
+    "jest": "^27.2.5"
   },
   "dependencies": {
     "@evan.network/sidetree-common": "^0.3.1-unstable.70",

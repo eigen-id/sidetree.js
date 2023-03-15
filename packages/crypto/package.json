@@ -24,7 +24,7 @@
     "prepare": "npx dts-cli build"
   },
   "devDependencies": {
-    "dts": "^0.1.1",
+    "dts-cli": "^1.6.3",
     "events": "^3.3.0"
   },
   "dependencies": {

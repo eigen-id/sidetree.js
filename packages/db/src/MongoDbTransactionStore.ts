@@ -1,4 +1,4 @@
-import { Collection, Cursor, Db, Long, MongoClient } from 'mongodb';
+import { Collection, Db, FindCursor, Long, MongoClient } from 'mongodb';
 
 import {
   TransactionModel,
@@ -25,9 +25,7 @@ export default class MongoDbTransactionStore implements ITransactionStore {
     serverUrl: string,
     databaseName: string
   ): Promise<void> {
-    const client = await MongoClient.connect(serverUrl, {
-      useNewUrlParser: true,
-    }); // `useNewUrlParser` addresses nodejs's URL parser deprecation warning.
+    const client = await MongoClient.connect(serverUrl);
     this.client = client;
     this.db = client.db(databaseName);
     this.transactionCollection = await MongoDbTransactionStore.createTransactionCollectionIfNotExist(
@@ -69,7 +67,7 @@ export default class MongoDbTransactionStore implements ITransactionStore {
     let transactions = [];
 
     try {
-      let dbCursor: Cursor<any>;
+      let dbCursor: FindCursor<any>;
 
       // If given `undefined`, return transactions from the start.
       if (transactionNumber === undefined) {
@@ -122,7 +120,7 @@ export default class MongoDbTransactionStore implements ITransactionStore {
       await this.transactionCollection!.insertOne(transactionInMongoDb);
     } catch (error) {
       // Swallow duplicate insert errors (error code 11000) as no-op; rethrow others
-      if (error.code !== 11000) {
+      if ((error as any).code !== 11000) {
         throw error;
       }
     }
@@ -201,7 +199,7 @@ export default class MongoDbTransactionStore implements ITransactionStore {
     inclusiveBeginTransactionTime: number,
     exclusiveEndTransactionTime: number
   ): Promise<TransactionModel[]> {
-    let cursor: Cursor<any>;
+    let cursor: FindCursor<any>;
     if (inclusiveBeginTransactionTime === exclusiveEndTransactionTime) {
       // if begin === end, query for 1 transaction time
       cursor = this.transactionCollection!.find({
@@ -252,12 +250,12 @@ export default class MongoDbTransactionStore implements ITransactionStore {
       )
     ) {
       Logger.info('Transaction collection already exists.');
-      transactionCollection = db.collection(
+      transactionCollection = db.collection<TransactionModel>(
         MongoDbTransactionStore.transactionCollectionName
       );
     } else {
       Logger.info('Transaction collection does not exists, creating...');
-      transactionCollection = await db.createCollection(
+      transactionCollection = await db.createCollection<TransactionModel>(
         MongoDbTransactionStore.transactionCollectionName
       );
       // Note the unique index, so duplicate inserts are rejected.

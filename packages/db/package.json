@@ -30,7 +30,7 @@
     "prepare": "npx dts-cli build"
   },
   "devDependencies": {
-    "dts": "^0.1.1"
+    "dts-cli": "^1.6.3"
   },
   "dependencies": {
     "@evan.network/sidetree-common": "^0.3.1-unstable.70",
