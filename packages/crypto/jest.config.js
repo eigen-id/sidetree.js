@@ -1,3 +1,4 @@
+
 module.exports = {
   // https://github.com/panva/jose/discussions/105
   // https://github.com/facebook/jest/issues/2549
@@ -7,6 +8,6 @@ module.exports = {
   globals: {
     'ts-jest': {
       diagnostics: false,
-    },
+    }
   },
 };

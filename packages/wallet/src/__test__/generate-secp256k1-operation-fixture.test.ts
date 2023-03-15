@@ -51,7 +51,6 @@ it('can generate test fixture', async () => {
         },
       ],
     } as any;
-
     const recoveryKey = key1.publicKeyJwk;
     const updateKey = key2.publicKeyJwk;
     const input1 = { recoveryKey, updateKey, document };

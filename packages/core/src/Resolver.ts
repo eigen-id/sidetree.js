@@ -229,7 +229,7 @@ export default class Resolver {
       Logger.info(
         `Skipped bad operation for DID ${operation.didUniqueSuffix} at time ${
           operation.transactionTime
-        }. Error: ${SidetreeError.stringify(error)}`
+        }. Error: ${SidetreeError.stringify((error as any))}`
       );
     }
 

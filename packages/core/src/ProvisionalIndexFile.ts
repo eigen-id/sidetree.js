@@ -45,7 +45,7 @@ export default class ProvisionalIndexFile {
     } catch (error) {
       throw SidetreeError.createFromError(
         ErrorCode.ProvisionalIndexFileDecompressionFailure,
-        error
+        (error as any)
       );
     }
 
@@ -55,7 +55,7 @@ export default class ProvisionalIndexFile {
     } catch (error) {
       throw SidetreeError.createFromError(
         ErrorCode.ProvisionalIndexFileNotJson,
-        error
+        (error as any)
       );
     }
 

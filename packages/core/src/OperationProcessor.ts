@@ -168,7 +168,7 @@ export default class OperationProcessor implements IOperationProcessor {
       Logger.info(
         `Partial update on next commitment hash applied because: ` +
           `Unable to apply delta patches for transaction number ${transactionNumber} for DID ${didUniqueSuffix}: ${SidetreeError.stringify(
-            error
+            (error as any)
           )}.`
       );
     }
@@ -239,7 +239,7 @@ export default class OperationProcessor implements IOperationProcessor {
       const transactionNumber = anchoredOperationModel.transactionNumber;
       Logger.info(
         `Unable to apply document patch in transaction number ${transactionNumber} for DID ${didUniqueSuffix}: ${SidetreeError.stringify(
-          error
+          (error as any)
         )}.`
       );
     }
@@ -315,7 +315,7 @@ export default class OperationProcessor implements IOperationProcessor {
       Logger.info(
         `Partial update on next commitment hash applied because: ` +
           `Unable to apply delta patches for transaction number ${transactionNumber} for DID ${didUniqueSuffix}: ${SidetreeError.stringify(
-            error
+            (error as any)
           )}.`
       );
     }

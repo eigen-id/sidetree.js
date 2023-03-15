@@ -24,7 +24,8 @@ export const toKeyPair = async (
     type: 'JsonWebKey2020',
     privateKey: true,
   });
-
+  delete jsonWebKeyPair.publicKeyJwk.alg;
+  delete jsonWebKeyPair.privateKeyJwk.alg;
   return {
     ...jsonWebKeyPair,
     '@context': [UNIVERSAL_WALLET_CONTEXT_URL],

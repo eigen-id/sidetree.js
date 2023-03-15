@@ -26,9 +26,7 @@ export default class MongoDbStore {
    * Initialize the MongoDB transaction store.
    */
   public async initialize(): Promise<void> {
-    const client = await MongoClient.connect(this.serverUrl, {
-      useNewUrlParser: true,
-    }); // `useNewUrlParser` addresses nodejs's URL parser deprecation warning.
+    const client = await MongoClient.connect(this.serverUrl);
     this.client = client;
     this.db = client.db(this.databaseName);
     await this.createCollectionIfNotExist(this.db);

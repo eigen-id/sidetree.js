@@ -43,9 +43,7 @@ export default class MongoDbUnresolvableTransactionStore
    * Initialize the MongoDB unresolvable transaction store.
    */
   public async initialize(): Promise<void> {
-    const client = await MongoClient.connect(this.serverUrl, {
-      useNewUrlParser: true,
-    }); // `useNewUrlParser` addresses nodejs's URL parser deprecation warning.
+    const client = await MongoClient.connect(this.serverUrl);
     this.client = client;
     this.db = client.db(this.databaseName);
     this.unresolvableTransactionCollection = await MongoDbUnresolvableTransactionStore.createUnresolvableTransactionCollectionIfNotExist(
@@ -211,14 +209,14 @@ export default class MongoDbUnresolvableTransactionStore
       )
     ) {
       Logger.info('Unresolvable transaction collection already exists.');
-      unresolvableTransactionCollection = db.collection(
+      unresolvableTransactionCollection = db.collection<UnresolvableTransactionModel>(
         MongoDbUnresolvableTransactionStore.unresolvableTransactionCollectionName
       );
     } else {
       Logger.info(
         'Unresolvable transaction collection does not exists, creating...'
       );
-      unresolvableTransactionCollection = await db.createCollection(
+      unresolvableTransactionCollection = await db.createCollection<UnresolvableTransactionModel>(
         MongoDbUnresolvableTransactionStore.unresolvableTransactionCollectionName
       );
       await unresolvableTransactionCollection.createIndex(

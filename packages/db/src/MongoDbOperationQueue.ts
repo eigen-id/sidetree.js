@@ -56,7 +56,7 @@ export default class MongoDbOperationQueue implements IOperationQueue {
       await this.collection!.insertOne(queuedOperation);
     } catch (error) {
       // Duplicate insert errors (error code 11000).
-      if (error.code === 11000) {
+      if ((error as any).code === 11000) {
         throw new SidetreeError(ErrorCode.BatchWriterAlreadyHasOperationForDid);
       }
 
@@ -138,9 +138,9 @@ export default class MongoDbOperationQueue implements IOperationQueue {
     // If the queued operation collection exists, use it; else create it then use it.
     let collection;
     if (collectionNames.includes(this.collectionName)) {
-      collection = db.collection(this.collectionName);
+      collection = db.collection<IMongoQueuedOperation>(this.collectionName);
     } else {
-      collection = await db.createCollection(this.collectionName);
+      collection = await db.createCollection<IMongoQueuedOperation>(this.collectionName);
       // Create an index on didUniqueSuffix make `contains()` operations more efficient.
       // This is an unique index, so duplicate inserts are rejected.
       await collection.createIndex({ didUniqueSuffix: 1 }, { unique: true });
@@ -154,7 +154,7 @@ export default class MongoDbOperationQueue implements IOperationQueue {
   ): QueuedOperationModel {
     return {
       didUniqueSuffix: mongoQueuedOperation.didUniqueSuffix,
-      operationBuffer: mongoQueuedOperation.operationBufferBsonBinary.buffer,
+      operationBuffer: Buffer.from(mongoQueuedOperation.operationBufferBsonBinary.buffer),
     };
   }
 }

@@ -23,7 +23,7 @@ import {
   FetchResult,
   ServiceVersionModel,
 } from '@evan.network/sidetree-common';
-import ipfsClient from 'ipfs-http-client';
+import { create } from 'ipfs-http-client';
 import concat from 'it-concat';
 
 const { version } = require('../package.json');
@@ -35,11 +35,11 @@ export default class CasIpfs implements ICasService {
     const parts = multiaddr.split('/');
 
     if (parts[1] === 'ip4') {
-      this.ipfs = ipfsClient({ host: parts[2], port: parts[4] });
+      this.ipfs = create({ host: parts[2], port: parts[4] });
     }
 
     if (parts[1] === 'dns4') {
-      this.ipfs = ipfsClient({
+      this.ipfs = create({
         host: parts[2],
         port: parts[4],
         protocol: parts[5],

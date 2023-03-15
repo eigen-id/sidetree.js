@@ -9,30 +9,32 @@
     "gjgd (https://github.com/gjgd)"
   ],
   "module": "dist/common.esm.js",
-  "version": "0.3.1-unstable.70",
+  "version": "0.3.1-unstable.72",
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "engines": {
     "node": ">=10"
   },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint src",
-    "lint:fix": "tsdx lint src --fix",
-    "prepare": "tsdx build"
+    "start": "npx dts-cli watch",
+    "build": "npx dts-cli build",
+    "test": "npx dts-cli test --passWithNoTests",
+    "lint": "npx dts-cli lint src",
+    "lint:fix": "npx dts-cli lint src --fix",
+    "prepare": "npx dts-cli build"
   },
   "devDependencies": {
-    "@rollup/plugin-replace": "^3.0.0",
-    "tsdx": "^0.14.1"
+    "@rollup/plugin-replace": "^5.0.2",
+    "dts-cli": "^1.6.3",
+    "jest": "^27.2.5",
+    "jest-watch-typeahead": "^2.2.2"
   },
   "dependencies": {
     "base64url": "^3.0.1",
-    "canonicalize": "^1.0.1",
+    "canonicalize": "^1.0.8",
     "chalk": "^4.1.2",
-    "multiformats": "^9.4.8",
-    "multihashes": "^0.4.19"
+    "multiformats": "^9",
+    "multihashes": "^4.0.3"
   },
   "gitHead": "e97862f01a5ad9845d82eb57ca46d335a98aeb8b",
   "homepage": "https://github.com/transmute-industries/sidetree.js/tree/main/packages/common",
@@ -40,5 +42,8 @@
     "type": "git",
     "url": "https://github.com/transmute-industries/sidetree.js.git",
     "directory": "packages/common"
+  },
+  "jest": {
+    "transform": {}
   }
 }

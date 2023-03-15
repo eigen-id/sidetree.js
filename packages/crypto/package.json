@@ -9,30 +9,43 @@
     "gjgd (https://github.com/gjgd)"
   ],
   "module": "dist/crypto.esm.js",
-  "version": "0.3.1-unstable.70",
+  "version": "0.3.1-unstable.75",
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "engines": {
     "node": ">=10"
   },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint src",
-    "lint:fix": "tsdx lint src --fix",
-    "prepare": "tsdx build"
+    "start": "npx dts-cli watch",
+    "build": "npx dts-cli build",
+    "test": "npx dts-cli test --passWithNoTests",
+    "lint": "npx dts-cli lint src",
+    "lint:fix": "npx dts-cli lint src --fix",
+    "prepare": "npx dts-cli build"
   },
   "devDependencies": {
-    "events": "^3.3.0",
-    "tsdx": "^0.14.1"
+    "@babel/preset-typescript": "^7.21.0",
+    "dts-cli": "^1.6.3",
+    "events": "^3.3.0"
   },
   "dependencies": {
-    "@rollup/plugin-replace": "^3.0.0",
-    "@transmute/ed25519-key-pair": "^0.7.0-unstable.8",
-    "@transmute/json-web-signature": "^0.7.0-unstable.8",
-    "bip39": "^3.0.2",
-    "hdkey": "^2.0.1"
+    "@rollup/plugin-replace": "^5.0.2",
+    "@transmute/ed25519-key-pair": "^0.7.0-unstable.80",
+    "@transmute/json-web-signature": "^0.7.0-unstable.80",
+    "bip39": "^3.1.0",
+    "hdkey": "^2.1.0",
+    "jest-esm-transformer": "^1.0.0",
+    "node-fetch": "^2.6.9"
+  },
+  "overrides": {
+    "@transmute/json-web-signature": {
+      "@transmute/jsonld": {
+        "jsonld": "^8"
+      }
+    }
+  },
+  "resolutions": {
+    "@transmute/json-web-signature/@transmute/jsonld/jsonld": "^8"
   },
   "gitHead": "9501995a63904980ae46089a6419cf622f2bc51a",
   "homepage": "https://github.com/transmute-industries/sidetree.js/tree/main/packages/crypto",
@@ -40,5 +53,18 @@
     "type": "git",
     "url": "https://github.com/transmute-industries/sidetree.js.git",
     "directory": "packages/crypto"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest",
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!(@digitalbazaar/http-client/|ky-universal|ky/))"
+    ],
+    "moduleNameMapper": {
+      "^@digitalbazaar/http-client$": "<rootDir>/node_modules/@digitalbazaar/http-client/lib/index.js",
+      "^ky-universal$": "<rootDir>/node_modules/ky-universal/browser.js"
+    }
   }
 }

@@ -92,7 +92,7 @@ export default class TransactionProcessor implements ITransactionProcessor {
       } else {
         Logger.error(
           LogColor.red(
-            `Unexpected error while fetching and downloading core files, MUST investigate and fix: ${error.message}`
+            `Unexpected error while fetching and downloading core files, MUST investigate and fix: ${(error as any).message}`
           )
         );
         retryNeeded = true;
@@ -162,7 +162,7 @@ export default class TransactionProcessor implements ITransactionProcessor {
       } else {
         Logger.error(
           LogColor.red(
-            `Unexpected error while fetching and downloading provisional files, MUST investigate and fix: ${error.message}`
+            `Unexpected error while fetching and downloading provisional files, MUST investigate and fix: ${(error as any).message}`
           )
         );
         retryNeeded = true;

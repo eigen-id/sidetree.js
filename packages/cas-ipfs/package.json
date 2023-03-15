@@ -9,7 +9,7 @@
     "gjgd (https://github.com/gjgd)"
   ],
   "module": "dist/cas-ipfs.esm.js",
-  "version": "0.3.1-unstable.70",
+  "version": "0.3.1-unstable.76",
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -17,25 +17,25 @@
     "node": ">=10"
   },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
+    "start": "npx dts-cli watch",
+    "build": "npx dts-cli build",
     "pretest": "docker-compose up -d ipfs mongo",
-    "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint src",
-    "lint:fix": "tsdx lint src --fix",
-    "prepare": "tsdx build"
+    "test": "npx dts-cli test --passWithNoTests",
+    "lint": "npx dts-cli lint src",
+    "lint:fix": "npx dts-cli lint src --fix",
+    "prepare": "npx dts-cli build"
   },
   "devDependencies": {
-    "@evan.network/sidetree-cas": "^0.3.1-unstable.70",
+    "@evan.network/sidetree-cas": "^0.3.1-unstable.72",
     "@rollup/plugin-replace": "^3.0.0",
-    "jest-environment-node": "^27.2.5",
-    "tsdx": "^0.14.1"
+    "dts-cli": "^1.6.3",
+    "jest-environment-node": "^27.2.5"
   },
   "dependencies": {
-    "@evan.network/sidetree-common": "^0.3.1-unstable.70",
-    "@evan.network/sidetree-db": "^0.3.1-unstable.70",
-    "ipfs-http-client": "^49.0.2",
-    "it-concat": "^1.0.0"
+    "@evan.network/sidetree-common": "^0.3.1-unstable.72",
+    "@evan.network/sidetree-db": "^0.3.1-unstable.72",
+    "ipfs-http-client": "^56.0.0",
+    "it-concat": "^2.0.0"
   },
   "gitHead": "9501995a63904980ae46089a6419cf622f2bc51a",
   "homepage": "https://github.com/transmute-industries/sidetree.js/tree/main/packages/cas-ipfs",
@@ -43,5 +43,8 @@
     "type": "git",
     "url": "https://github.com/transmute-industries/sidetree.js.git",
     "directory": "packages/cas-ipfs"
+  },
+  "jest": {
+    "transform": {}
   }
 }
