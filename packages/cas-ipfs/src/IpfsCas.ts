@@ -63,6 +63,9 @@ export default class CasIpfs implements ICasService {
 
   public async write(content: Buffer): Promise<string> {
     const source = await this.ipfs.add(content);
+    if(!source.path) {
+      source.path = source.cid.toString();
+    }
     return source.path;
   }
 
