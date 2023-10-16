@@ -9,7 +9,7 @@
     "gjgd (https://github.com/gjgd)"
   ],
   "module": "dist/cas.esm.js",
-  "version": "0.3.1-unstable.78",
+  "version": "0.3.1-unstable.79",
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -29,7 +29,7 @@
     "dts-cli": "^1.6.3"
   },
   "dependencies": {
-    "@evan.network/sidetree-common": "^0.3.1-unstable.78",
+    "@evan.network/sidetree-common": "^0.3.1-unstable.79",
     "@evan.network/sidetree-test-vectors": "^0.3.1-unstable.70",
     "ipfs-unixfs": "^6.0.9",
     "ipld-dag-pb": "^0.22.3",
