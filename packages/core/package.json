@@ -55,7 +55,7 @@
     "uri-js": "^4.4.1",
     "yieldable-json": "^2.0.0"
   },
-  "gitHead": "9501995a63904980ae46089a6419cf622f2bc51a",
+  "gitHead": "4f017c933e6784680ac716331682b13f7be21a6e",
   "homepage": "https://github.com/transmute-industries/sidetree.js/tree/main/packages/core",
   "repository": {
     "type": "git",

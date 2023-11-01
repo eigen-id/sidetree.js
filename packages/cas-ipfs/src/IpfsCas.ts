@@ -24,7 +24,6 @@ import {
   ServiceVersionModel,
 } from '@evan.network/sidetree-common';
 import { IPFSHTTPClient, create } from 'ipfs-http-client';
-import concat from 'it-concat';
 
 const { version } = require('../package.json');
 
