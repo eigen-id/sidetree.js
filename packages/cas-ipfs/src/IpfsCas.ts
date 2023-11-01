@@ -23,28 +23,30 @@ import {
   FetchResult,
   ServiceVersionModel,
 } from '@evan.network/sidetree-common';
-import { create } from 'ipfs-http-client';
+import { IPFSHTTPClient, create } from 'ipfs-http-client';
 import concat from 'it-concat';
 
 const { version } = require('../package.json');
 
 export default class CasIpfs implements ICasService {
-  private ipfs: any;
+  private ipfs: IPFSHTTPClient;
 
   constructor(multiaddr: string) {
     const parts = multiaddr.split('/');
 
     if (parts[1] === 'ip4') {
-      this.ipfs = create({ host: parts[2], port: parts[4] });
-    }
-
-    if (parts[1] === 'dns4') {
+      this.ipfs = create({ host: parts[2], port: parseInt(parts[4], 10) });
+    } else if (parts[1] === 'dns4') {
       this.ipfs = create({
         host: parts[2],
-        port: parts[4],
+        port: parseInt(parts[4], 10),
         protocol: parts[5],
       });
+    } else {
+      this.ipfs = create({url: multiaddr});
     }
+
+
   }
   public async initialize(): Promise<void> {
     return;
@@ -72,9 +74,11 @@ export default class CasIpfs implements ICasService {
   public async read(address: string): Promise<FetchResult> {
     try {
       const source = this.ipfs.get(address);
-      const file = await source.next();
-      const bufferList: any = await concat(file.value.content);
-      const content = bufferList.copy();
+      let chunks: Uint8Array[] = [];
+      for await (const chunk of source) {
+        chunks.push(chunk);
+      }
+      const content = Buffer.concat(chunks);
       if (content) {
         return {
           code: FetchResultCode.Success,

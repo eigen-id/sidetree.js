@@ -108,7 +108,7 @@ export default class Observer {
         const endTimer = timeSpan(); // Measure time taken to go blockchain read.
         try {
           Logger.info(
-            'Fetching Sidetree transactions from blockchain service...'
+            `Fetching Sidetree transactions from blockchain service for cursorTransactionNumber: ${cursorTransactionNumber} and cursorTransactionTimeHash: ${cursorTransactionTimeHash}`
           );
           readResult = await this.blockchain.read(
             cursorTransactionNumber,
