@@ -9,7 +9,7 @@
     "gjgd (https://github.com/gjgd)"
   ],
   "module": "dist/photon.esm.js",
-  "version": "0.3.1-unstable.79",
+  "version": "0.3.1-unstable.80",
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -38,8 +38,8 @@
   "dependencies": {
     "@evan.network/sidetree-cas": "^0.3.1-unstable.79",
     "@evan.network/sidetree-cas-s3": "^0.3.1-unstable.79",
-    "@evan.network/sidetree-did-method": "^0.3.1-unstable.79",
-    "@evan.network/sidetree-qldb": "^0.3.1-unstable.79"
+    "@evan.network/sidetree-did-method": "^0.3.1-unstable.80",
+    "@evan.network/sidetree-qldb": "^0.3.1-unstable.80"
   },
   "homepage": "https://github.com/transmute-industries/sidetree.js/tree/main/packages/did-method-photon",
   "repository": {
