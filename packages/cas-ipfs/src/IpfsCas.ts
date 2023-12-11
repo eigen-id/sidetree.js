@@ -72,7 +72,7 @@ export default class CasIpfs implements ICasService {
 
   public async read(address: string): Promise<FetchResult> {
     try {
-      const source = this.ipfs.get(address);
+      const source = this.ipfs.cat(address);
       let chunks: Uint8Array[] = [];
       for await (const chunk of source) {
         chunks.push(chunk);
