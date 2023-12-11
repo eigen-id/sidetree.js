@@ -168,9 +168,10 @@ export default class EthereumLedger implements IBlockchain {
       });
     }
 
-    const txns = logs.map((log) =>
-      utils.eventLogToSidetreeTransaction(log as ElementEventData)
-    );
+    const txns = [];
+    for(const log of logs) {
+      txns.push(await utils.eventLogToSidetreeTransaction(this.web3, log as ElementEventData))
+    }
     if (options && options.omitTimestamp) {
       return txns;
     }

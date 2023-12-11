@@ -27,9 +27,10 @@ const getAccounts = (web3: Web3): Promise<Array<string>> =>
     });
   });
 
-const eventLogToSidetreeTransaction = (
+const eventLogToSidetreeTransaction = async (
+  web3: Web3,
   log: ElementEventData
-): TransactionModel => {
+): Promise<TransactionModel> => {
   const coreIndexFileUri = Encoder.bufferToBase58(
     Buffer.from(
       '1220' + log.returnValues.anchorFileHash.replace('0x', ''),
@@ -41,6 +42,8 @@ const eventLogToSidetreeTransaction = (
     numberOfOperations: Number.parseInt(log.returnValues.numberOfOperations),
   };
   const anchorString = AnchoredDataSerializer.serialize(anchorObject);
+
+  const tx = await web3.eth.getTransaction(log.transactionHash);
   return {
     transactionNumber: Number.parseInt(log.returnValues.transactionNumber, 10),
     transactionTime: log.blockNumber,
@@ -48,7 +51,7 @@ const eventLogToSidetreeTransaction = (
     anchorString,
     transactionFeePaid: 0,
     normalizedTransactionFee: 0,
-    writer: 'writer',
+    writer: tx.from,
   };
 };
 
