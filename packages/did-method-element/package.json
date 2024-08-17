@@ -20,28 +20,10 @@
   "engines": {
     "node": ">=10"
   },
-  "scripts": {
-    "start": "npx dts-cli watch",
-    "build": "npx dts-cli build",
-    "pretest": "docker-compose up -d mongo ganache ipfs",
-    "test": "npx dts-cli test --runInBand",
-    "lint": "npx dts-cli lint src",
-    "lint:fix": "npx dts-cli lint src --fix",
-    "prepare": "npx dts-cli build"
-  },
   "devDependencies": {
-    "@evan.network/sidetree-test-vectors": "^0.3.1-unstable.70",
-    "@evan.network/sidetree-wallet": "^0.3.1-unstable.79",
     "dts-cli": "^1.6.3"
   },
   "dependencies": {
-    "@evan.network/sidetree-cas": "^0.3.1-unstable.79",
-    "@evan.network/sidetree-cas-ipfs": "^0.3.1-unstable.83",
-    "@evan.network/sidetree-common": "^0.3.1-unstable.79",
-    "@evan.network/sidetree-core": "^0.3.1-unstable.81",
-    "@evan.network/sidetree-db": "^0.3.1-unstable.79",
-    "@evan.network/sidetree-did-method": "^0.3.1-unstable.81",
-    "@evan.network/sidetree-ethereum": "^0.3.1-unstable.82",
     "@rollup/plugin-replace": "^5.0.2",
     "@truffle/hdwallet-provider": "^2.1.8",
     "dotenv": "^16.0.3",

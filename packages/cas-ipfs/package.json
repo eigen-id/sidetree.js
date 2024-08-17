@@ -16,24 +16,12 @@
   "engines": {
     "node": ">=10"
   },
-  "scripts": {
-    "start": "npx dts-cli watch",
-    "build": "npx dts-cli build",
-    "pretest": "docker-compose up -d ipfs mongo",
-    "test": "npx dts-cli test --passWithNoTests",
-    "lint": "npx dts-cli lint src",
-    "lint:fix": "npx dts-cli lint src --fix",
-    "prepare": "npx dts-cli build"
-  },
   "devDependencies": {
-    "@evan.network/sidetree-cas": "^0.3.1-unstable.79",
     "@rollup/plugin-replace": "^3.0.0",
     "dts-cli": "^1.6.3",
     "jest-environment-node": "^27.2.5"
   },
   "dependencies": {
-    "@evan.network/sidetree-common": "^0.3.1-unstable.79",
-    "@evan.network/sidetree-db": "^0.3.1-unstable.79",
     "ipfs-http-client": "^56.0.0",
     "it-concat": "^2.0.0"
   },

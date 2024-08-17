@@ -20,7 +20,7 @@ export const AppPage = (props: any) => {
   const { title, children } = props;
   const useAuth = props.method === 'photon';
   let maybeAccessToken;
-  if (process.browser) {
+  if (typeof window !== 'undefined') {
     maybeAccessToken = localStorage.getItem('sidetree.access_token');
   }
   const accessToken: any = maybeAccessToken

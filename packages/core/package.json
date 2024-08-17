@@ -20,15 +20,6 @@
   "engines": {
     "node": ">=10"
   },
-  "scripts": {
-    "start": "npx dts-cli watch",
-    "build": "npx dts-cli build",
-    "pretest": "docker-compose up -d mongo",
-    "test": "npx dts-cli test --passWithNoTests",
-    "lint": "npx dts-cli lint src",
-    "lint:fix": "npx dts-cli lint src --fix",
-    "prepare": "npx dts-cli build"
-  },
   "devDependencies": {
     "@rollup/plugin-replace": "^5.0.2",
     "@types/hdkey": "^2.0.1",
@@ -38,9 +29,6 @@
     "tslib": "^2.5.0"
   },
   "dependencies": {
-    "@evan.network/sidetree-common": "^0.3.1-unstable.79",
-    "@evan.network/sidetree-crypto": "^0.3.1-unstable.79",
-    "@evan.network/sidetree-db": "^0.3.1-unstable.79",
     "@transmute/did-key-ed25519": "^0.3.0-unstable.10",
     "@trust/keyto": "^1.0.1",
     "bip39": "^3.1.0",

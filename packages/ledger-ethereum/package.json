@@ -16,23 +16,10 @@
   "engines": {
     "node": ">=10"
   },
-  "scripts": {
-    "start": "npx dts-cli watch",
-    "build": "npx dts-cli build",
-    "pretest": "docker-compose up -d ganache",
-    "test": "npx dts-cli test",
-    "lint": "npx dts-cli lint src",
-    "lint:fix": "npx dts-cli lint src --fix",
-    "prepare": "npx dts-cli build",
-    "contracts:test": "truffle test",
-    "contracts:migrate:dev": "truffle migrate --network development --reset",
-    "contracts:migrate:ropsten": "truffle migrate --network ropsten"
-  },
   "peerDependencies": {
     "web3": ">=1.2.7"
   },
   "devDependencies": {
-    "@evan.network/sidetree-test-vectors": "^0.3.1-unstable.70",
     "@rollup/plugin-replace": "^5.0.2",
     "@truffle/hdwallet-provider": "^2.1.7",
     "dotenv": "^16.0.3",
@@ -40,8 +27,6 @@
     "truffle": "^5.7.9"
   },
   "dependencies": {
-    "@evan.network/sidetree-common": "^0.3.1-unstable.79",
-    "@evan.network/sidetree-core": "^0.3.1-unstable.81",
     "web3": "^1.8.2",
     "web3-eth": "^1.8.2",
     "web3-eth-contract": "^1.8.2"

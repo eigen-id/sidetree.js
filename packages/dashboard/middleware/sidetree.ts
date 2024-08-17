@@ -10,6 +10,7 @@ const methods: any = {
   // causes Module not found: Can't resolve 'electron'
   // related to
   // https://ethereum.stackexchange.com/questions/111540/cant-resolve-electron-in-opt-build-repo-node-modules-swarm-js-node-modules
+  'elem:eigen': element,
   'elem:ganache': element,
   'elem:ropsten': element,
   photon,

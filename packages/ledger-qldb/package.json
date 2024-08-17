@@ -16,16 +16,7 @@
   "engines": {
     "node": ">=10"
   },
-  "scripts": {
-    "start": "npx dts-cli watch",
-    "build": "npx dts-cli build",
-    "test": "IMPORT_SQLITE=true npx dts-cli test",
-    "lint": "npx dts-cli lint src",
-    "lint:fix": "npx dts-cli lint src --fix",
-    "prepare": "npx dts-cli build"
-  },
   "devDependencies": {
-    "@evan.network/sidetree-test-vectors": "^0.3.1-unstable.70",
     "@rollup/plugin-replace": "^3.0.0",
     "@types/sqlite3": "^3.1.8",
     "dts-cli": "^1.6.3",
@@ -33,8 +24,6 @@
   },
   "dependencies": {
     "@aws-sdk/client-qldb": "3.290.0",
-    "@evan.network/sidetree-common": "^0.3.1-unstable.79",
-    "@evan.network/sidetree-core": "^0.3.1-unstable.81",
     "amazon-qldb-driver-nodejs": "^3.0.1",
     "aws-sdk": "^2.1332.0",
     "ion-js": "^4.3.0",
